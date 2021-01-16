@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 #############################################################
-# This file was automatically generated on 2017-11-17.      #
+# This file was automatically generated on 2019-02-25.      #
 #                                                           #
-# Python Bindings Version 2.1.14                            #
+# Python Bindings Version 2.1.21                            #
 #                                                           #
 # If you have a bugfix for this file and want to commit it, #
 # please fix the bug in the generator. You can find a link  #
@@ -28,6 +28,7 @@ class BrickletBarometer(Device):
 
     DEVICE_IDENTIFIER = 221
     DEVICE_DISPLAY_NAME = 'Barometer Bricklet'
+    DEVICE_URL_PART = 'barometer' # internal
 
     CALLBACK_AIR_PRESSURE = 15
     CALLBACK_ALTITUDE = 16
@@ -97,8 +98,8 @@ class BrickletBarometer(Device):
     def get_air_pressure(self):
         """
         Returns the air pressure of the air pressure sensor. The value
-        has a range of 10000 to 1200000 and is given in mbar/1000, i.e. a value
-        of 1001092 means that an air pressure of 1001.092 mbar is measured.
+        has a range of 10000 to 1200000 and is given in hPa/1000, i.e. a value
+        of 1001092 means that an air pressure of 1001.092 hPa is measured.
 
         If you want to get the air pressure periodically, it is recommended to use the
         :cb:`Air Pressure` callback and set the period with
@@ -246,7 +247,7 @@ class BrickletBarometer(Device):
 
     def set_reference_air_pressure(self, air_pressure):
         """
-        Sets the reference air pressure in mbar/1000 for the altitude calculation.
+        Sets the reference air pressure in hPa/1000 for the altitude calculation.
         Valid values are between 10000 and 1200000.
         Setting the reference to the current air pressure results in a calculated
         altitude of 0cm. Passing 0 is a shortcut for passing the current air pressure as
@@ -257,7 +258,7 @@ class BrickletBarometer(Device):
         `QFE <https://en.wikipedia.org/wiki/Mean_sea_level_pressure#Mean_sea_level_pressure>`__
         used in aviation.
 
-        The default value is 1013.25mbar.
+        The default value is 1013.25hPa.
         """
         air_pressure = int(air_pressure)
 
